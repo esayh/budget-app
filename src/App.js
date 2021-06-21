@@ -7,6 +7,7 @@ import { apiURL } from './util/apiURL'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 //Pages
+import Home from './Pages/Home'
 import Index from './Pages/Index'
 import New from './Pages/New'
 import Show from './Pages/Show'
@@ -41,8 +42,10 @@ const App = () => {
 			{/* <h1 className='mt-4'>Budget App</h1> */}
 			<Navbar />
 			<Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
 				<Route exact path='/transactions'>
-					<h1 className='mt-4'>Bank Account Total : </h1>
 					<Index transactions={transactions} />
 				</Route>
 				<Route path='/transactions/new'>

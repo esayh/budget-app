@@ -5,7 +5,7 @@ const Transaction = ({ transaction, index }) => {
     <div className='Transaction'>
       {transaction.date}{' '}
 			<Link to={`transactions/${index}`}>{transaction.name}</Link>
-			{' '} ${transaction.amount}
+			{' '} ${transaction.amount.toLocaleString()}
 		</div>
 	)
 }
