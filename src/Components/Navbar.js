@@ -1,26 +1,14 @@
-import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap'
+import { Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const NavBar = () => {
 	return (
-		<Breadcrumb>
-			<BreadcrumbItem>
-				<Link style={{ color: '#34d15b' }} to='/'>
-					Home
-				</Link>
-			</BreadcrumbItem>
-			<BreadcrumbItem>
-				<Link style={{ color: '#13b5ba' }} to='/transactions'>
-					Budget App!
-				</Link>
-			</BreadcrumbItem>
-			<BreadcrumbItem>
-				<Link style={{ color: 'red' }} to='/transactions/new'>
-					Add New Transaction
-				</Link>
-			</BreadcrumbItem>
-		</Breadcrumb>
+		<Navbar bg='light' expand='lg'>
+			<Link to='/'>Home</Link>
+			<Link to='/transactions'>Save-it!</Link>
+			<Link to='/transactions/new'>Add New Transaction</Link>
+		</Navbar>
 	)
 }
 
-export default Navbar
+export default NavBar

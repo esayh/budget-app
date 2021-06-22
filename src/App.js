@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { apiURL } from './util/apiURL'
+import { Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 //Pages
@@ -13,7 +14,7 @@ import New from './Pages/New'
 import Show from './Pages/Show'
 
 //Components
-import Navbar from './Components/Navbar'
+import NavBar from './Components/NavBar'
 
 const API_BASE = apiURL()
 const App = () => {
@@ -36,8 +37,8 @@ const App = () => {
 	}, [])
 
 	return (
-		<div className='container'>
-			<Navbar />
+		<Container>
+			<NavBar />
 			<Switch>
 				<Route exact path='/'>
 					<Home />
@@ -52,7 +53,7 @@ const App = () => {
 					<Show transactions={transactions} />
 				</Route>
 			</Switch>
-		</div>
+		</Container>
 	)
 }
 
