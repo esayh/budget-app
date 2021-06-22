@@ -64,7 +64,7 @@ const TransactionsNewForm = (props) => {
 					onChange={handleTextChange}
 				/>
 			</Form.Group>
-			<Button variant='warning' type='submit'>
+			<Button variant='outline-success' type='submit'>
 				Submit
 			</Button>
 		</Form>
