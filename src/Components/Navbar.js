@@ -1,17 +1,26 @@
+import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  return (
-    <nav className='nav mt-5'>
-      <h1>
-        <Link to='/transactions'>Budget App</Link>
-      </h1>
-      <button>
-        <Link to='/transactions/new'>New Transaction</Link>
-      </button>
-      {/* <h1>Bank Account Total</h1> */}
-    </nav>
-  );
-};
+	return (
+		<Breadcrumb>
+			<BreadcrumbItem>
+				<Link style={{ color: '#34d15b' }} to='/'>
+					Home
+				</Link>
+			</BreadcrumbItem>
+			<BreadcrumbItem>
+				<Link style={{ color: '#13b5ba' }} to='/transactions'>
+					Budget App!
+				</Link>
+			</BreadcrumbItem>
+			<BreadcrumbItem>
+				<Link style={{ color: 'red' }} to='/transactions/new'>
+					Add New Transaction
+				</Link>
+			</BreadcrumbItem>
+		</Breadcrumb>
+	)
+}
 
-export default Navbar;
+export default Navbar

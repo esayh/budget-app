@@ -20,10 +20,8 @@ const App = () => {
 	const [transactions, setTransactions] = useState([])
 
 	const addTransaction = (newTransaction) => {
-		axios.post(`${API_BASE}/transactions`, newTransaction)
-    .then((res) => {
-			return axios.get(`${API_BASE}/transactions`)
-      .then((res) => {
+		axios.post(`${API_BASE}/transactions`, newTransaction).then((res) => {
+			return axios.get(`${API_BASE}/transactions`).then((res) => {
 				setTransactions(res.data)
 			})
 		})
@@ -39,12 +37,11 @@ const App = () => {
 
 	return (
 		<div className='container'>
-			{/* <h1 className='mt-4'>Budget App</h1> */}
 			<Navbar />
 			<Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
+				<Route exact path='/'>
+					<Home />
+				</Route>
 				<Route exact path='/transactions'>
 					<Index transactions={transactions} />
 				</Route>
@@ -55,14 +52,6 @@ const App = () => {
 					<Show transactions={transactions} />
 				</Route>
 			</Switch>
-			{/* <div className='row mt3'>
-        <div className='col-sm'>
-        <Navbar />
-        <Switch>
-        <New addTransaction={addTransaction}/>
-        </Switch>
-        </div>
-      </div> */}
 		</div>
 	)
 }
