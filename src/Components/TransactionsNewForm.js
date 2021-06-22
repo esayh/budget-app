@@ -1,65 +1,74 @@
 import { useState } from 'react'
-import { withRouter } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 
 const TransactionsNewForm = (props) => {
-  const [transactions, setTransactions] = useState({
+	const [transactions, setTransactions] = useState({
 		date: '',
 		name: '',
 		amount: 0,
 		from: '',
-  })
+	})
 
-  const handleTextChange = (e) => {
-    setTransactions({ ...transactions, [e.target.id]: e.target.value})
-  }
+	const handleTextChange = (e) => {
+		setTransactions({ ...transactions, [e.target.id]: e.target.value })
+	}
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    props.addTransaction(transactions)
-    props.history.push('/transactions')
-  }
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		props.addTransaction(transactions)
+		props.history.push('/transactions')
+	}
 
+	return (
+		<Form onSubmit={handleSubmit}>
+			<Form.Group>
+				<Form.Label>Date</Form.Label>
+				<Form.Control
+					onChange={handleTextChange}
+					type='date'
+					id='date'
+					value={transactions.date}
+				></Form.Control>
+			</Form.Group>
 
-  return (
-    <div className='New'>
-      <h1 className='mt-4'>Add a New Transaction</h1>
-      <form onSubmit={handleSubmit} className='mt-5'>
-        <label htmlFor='date'>Date</label>
-        <input
-        id='date'
-        value={transactions.date}
-        type="text" 
-        placeholder='Date'
-        onChange={handleTextChange}
-        />
-        <label htmlFor='name'>Name</label>
-        <input
-        id='name'
-        value={transactions.name}
-        type="text" 
-        placeholder='Name'
-        onChange={handleTextChange}
-        />
-        <label htmlFor='amount'>Amount</label>
-        <input
-        id='amount'
-        value={transactions.amount}
-        type="number" 
-        placeholder='Amount'
-        onChange={handleTextChange}
-        />
-        <label htmlFor='from'>From</label>
-        <input
-        id='from'
-        value={transactions.from}
-        type="text" 
-        placeholder='From'
-        onChange={handleTextChange}
-        />
-        <input type='submit' />
-      </form>
-    </div>
-  );
-};
+			<Form.Group>
+				<Form.Label>Name</Form.Label>
+				<Form.Control
+					type='text'
+					placeholder='Enter name'
+					id='name'
+					value={transactions.name}
+					onChange={handleTextChange}
+				/>
+			</Form.Group>
+
+			<Form.Group>
+				<Form.Label>Amount</Form.Label>
+				<Form.Control
+					type='number'
+					placeholder='Enter expense/income'
+					id='amount'
+					value={transactions.amount}
+					onChange={handleTextChange}
+				/>
+			</Form.Group>
+
+			<Form.Group>
+				<Form.Label>From</Form.Label>
+				<Form.Control
+					type='text'
+					placeholder='Description of transaction'
+					id='from'
+					value={transactions.from}
+					onChange={handleTextChange}
+				/>
+			</Form.Group>
+			<Button variant='warning' type='submit'>
+				Submit
+			</Button>
+		</Form>
+	)
+}
 
 export default withRouter(TransactionsNewForm)
