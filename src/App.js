@@ -14,7 +14,7 @@ import New from './Pages/New'
 import Show from './Pages/Show'
 
 //Components
-import NavBar from './Components/NavBar'
+import NavBar from './Components/Navbar'
 
 const API_BASE = apiURL()
 const App = () => {
