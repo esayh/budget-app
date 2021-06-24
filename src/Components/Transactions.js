@@ -9,7 +9,7 @@ const Transactions = ({ transactions }) => {
 
   return (
 		<div className='Transactions'>
-			<h1 className='mt-4'>{`Bank Account Total : $${total.toLocaleString()}`}</h1>
+			<h1 className='mt-4 text-center' style={{textDecoration: 'underline'}}>{`Bank Account Total : $${total.toLocaleString()}`}</h1>
 			{transactions.map((transaction, index) => {
 				return <Transaction key={index} transaction={transaction} index={index} />
 			})}

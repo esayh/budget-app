@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useHistory, useParams, withRouter } from 'react-router-dom';
 import axios from 'axios'
 import { apiURL } from '../util/apiURL'
-import { Jumbotron, Container } from 'react-bootstrap';
+import { Jumbotron, Container, Button } from 'react-bootstrap';
 
 const API_BASE = apiURL()
 
@@ -28,11 +28,11 @@ const TransactionDetails = () => {
 			</Jumbotron>
 			<Jumbotron className='text-center'>
 				<h4>Date: {transaction.date}</h4>
-				<p>Name: {transaction.name}</p>
-				<p>Amount: ${transaction.amount}</p>
-				<p>From: {transaction.from}</p>
+				<p><strong>Name:</strong> {transaction.name}</p>
+				<p><strong>Amount:</strong> ${transaction.amount}</p>
+				<p><strong>From:</strong> {transaction.from}</p>
 			<Link to={`/transactions`}>
-				<button>Back</button>
+				<Button variant='outline-secondary' size='sm'>Back</Button>
 			</Link>
 			</Jumbotron>
 		</Container>

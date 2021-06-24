@@ -31,7 +31,6 @@ const App = () => {
 	useEffect(() => {
 		axios.get(`${API_BASE}/transactions`).then((res) => {
 			const { data } = res
-			console.log(data)
 			setTransactions(data)
 		})
 	}, [])
