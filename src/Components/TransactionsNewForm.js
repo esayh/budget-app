@@ -22,6 +22,7 @@ const TransactionsNewForm = (props) => {
 
 	return (
 		<Jumbotron>
+			<h1>Add New Transaction</h1>
 			<Form className='mt-5' onSubmit={handleSubmit}>
 				<Form.Group>
 					<Form.Label>Date</Form.Label>
